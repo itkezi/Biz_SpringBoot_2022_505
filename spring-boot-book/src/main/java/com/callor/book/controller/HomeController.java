@@ -21,17 +21,19 @@ public class HomeController {
     }
 
     @RequestMapping(value="",method= RequestMethod.GET)
-    public String home(@RequestParam(name="code", required = false, defaultValue = "")String isbn, Model model) {
+    public String home(
+            @RequestParam(name = "code",
+            required = false,defaultValue = "") String isbn,
+            Model model) {
         List<BookVO> bookList = bookService.selectAll();
 
         if(isbn != null || !isbn.isEmpty()) {
             BookVO bookVO = bookService.findById(isbn);
             model.addAttribute("BOOK",bookVO);
-            log.debug("findBy 데이터 {}", bookVO);
+            log.debug("findBy 데이터 {}",bookVO);
         }
-
         model.addAttribute("BOOKS",bookList);
-        return "home";
+        return "index";
     }
 
     @RequestMapping(value="",method = RequestMethod.POST)

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <th:block th:include="includes/layout" />
+</head>
+<body>
+<th:block th:include="includes/layout::nav" />
+<form method="post" class="container-fluid">
+  <div CLASS="form-group">
+    <label FOR="username">USERNAME</label>
+    <input NAME="username" PLACEHOLDER="USERNAME" ID="username">
+  </div>
+  <div>
+    <label FOR="password">비밀번호</label>
+    <input CLASS="form-controller" NAME="password" TYPE="password" PLACEHOLDER="PASSWORD" ID="password">
+  </div>
+  <button CLASS="btn btn-primary">로그인</button>
+  <input TYPE="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+</form>
+  <th:block th:include="includes/include-head :: footer" />
+</body>
+</html>
