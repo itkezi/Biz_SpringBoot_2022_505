@@ -28,7 +28,9 @@ spring :
       static-locations : classpath:static/
       add-mappings : true
 
-  mvc.static-path-pattern : /static/**
+  mvc :
+    static-path-pattern : /static/**
 
   # logback-local.xml ??? ????? ????
-logging.config : classpath:log/logback-local.xml
+logging :
+  config : classpath:log/logback-local.xml

@@ -6,5 +6,42 @@
 </head>
 <body>
   <h1>어섭쇼</h1>
+
+  <form method="POST" class="w3-container">
+      <label>이름</label> <input name="username" placeholder="USERNAME"/>
+      <label>TODO</label> <input name="content" placeholder="TODO"/>
+      <button>저장</button>
+  </form>
+
+  <div>
+      <table class="todos">
+          <thead>
+          <tr>
+              <th>SEQ</th>
+              <th>닉네임</th>
+              <th>시작날짜</th>
+              <th>시작시간</th>
+              <th>TODO</th>
+              <th>종료날짜</th>
+              <th>종료시간</th>
+              <th>완료여부</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="td:${TODOS}"
+              th:attr="data-isbn=${td.seq}">
+              <td th:text="${td.seq}"></td>
+              <td th:text="${td.username}"></td>
+              <td th:text="${td.s_date}"></td>
+              <td th:text="${td.s_time}"></td>
+              <td th:text="${td.content}"></td>
+              <td th:text="${td.e_date}"></td>
+              <td th:text="${td.e_time}"></td>
+              <td th:text="${td.comp}"></td>
+          </tr>
+          </tbody>
+      </table>
+
+  </div>
 </body>
 </html>
